@@ -1,0 +1,17 @@
+.page {
+  
+}
+
+.sweater {
+    position: relative;
+    margin: 5px auto 0;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-gap: 10px 10px;
+    background-color: rgb(34, 34, 34);
+    border: 10px solid rgb(99, 99, 99);
+    grid-auto-rows: 100px;
+    grid-auto-flow: dense;
+    box-shadow: 10px 10px 10px rgb(34, 34, 34, .5);
+}
