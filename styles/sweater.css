@@ -1,4 +1,41 @@
-.room {
+@keyframes rotation {
+  0% {
+    transform: scale(1,1) rotate(0deg);
+    animation-timing-function: cubic-bezier(.81,.01,.24,.98);
+  } 30% {
+    transform: scale(1.1, 1.1) rotate(1deg);
+    animation-timing-function: linear;
+  } 40% {
+    transform: scale(1.1, 1.1) rotate(-1deg);
+    animation-timing-function: linear;
+  } 50% {
+    transform: scale(1.1, 1.1) rotate(1deg);
+    animation-timing-function: linear;
+  } 60% {
+    transform: scale(1.1, 1.1) rotate(-1deg);
+    animation-timing-function: linear;
+  } 100% {
+    transform: scale(1.1,1.1) rotate(0deg);
+    animation-timing-function: cubic-bezier(.57,.32,.24,.98);
+  }
+}
+
+@keyframes pop {
+  /* 0% {transform: scale(1, 1);} */
+  0% {transform: scale(1.1, 1.1);}
+  100% {transform: scale(1, 1);}
+}
+
+@keyframes widener {
+  0% {
+    grid-auto-rows: 0px;
+  }
+  100% {
+    grid-auto-rows: 10px;
+  }
+}
+
+.house {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,6 +46,21 @@
   background-attachment: fixed;
   position: relative;
 }
+
+.room {
+  width: 50vw;
+  height: 50vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pop .3s ease;
+}
+
+.room:hover {
+  animation: rotation 1s forwards;
+}
+
 
 .closet {
   min-width: 80vw;
@@ -21,17 +73,15 @@
   justify-content: center;
   align-items: center;
   opacity: .7;
-  clip-path: polygon(40% 18%, 61% 18%, 75% 25%, 78% 27%, 79% 30%, 81% 33%, 82% 39%, 88% 67%, 88% 70%, 87% 71%, 88% 73%, 88% 74%, 88% 76%, 87% 76%, 81% 77%, 79% 77%, 78% 76%, 78% 75%, 78% 73%, 76% 72%, 75% 71%, 70% 49%, 71% 71%, 70% 74%, 69% 75%, 68% 76%, 67% 77%, 67% 81%, 67% 82%, 36% 82%, 34% 82%, 33% 81%, 33% 77%, 31% 75%, 30% 74%, 29% 72%, 29% 69%, 30% 49%, 24% 71%, 23% 72%, 23% 73%, 22% 76%, 21% 77%, 20% 78%, 18% 78%, 15% 77%, 13% 77%, 12% 76%, 11% 75%, 12% 73%, 13% 71%, 12% 70%, 11% 69%, 21% 32%, 21% 32%, 22% 29%, 22% 29%, 23% 27%, 23% 27%, 24% 26%, 24% 26%);
+  clip-path: polygon(50% 20%, 57% 20%, 60% 20%, 64% 22%, 74% 27%, 76% 29%, 78% 32%, 79% 36%, 86% 67%, 86% 69%, 85% 70%, 86% 74%, 78% 75%, 77% 70%, 77% 70%, 75% 67%, 70% 44%, 69% 38%, 69% 40%, 69% 70%, 68% 73%, 67% 74%, 66% 75%, 65% 78%, 65% 80%, 35% 80%, 34% 75%, 33% 75%, 33% 74%, 33% 74%, 32% 73%, 31% 71%, 31% 39%, 31% 39%, 30% 40%, 30% 43%, 23% 70%, 22% 71%, 22% 73%, 22% 75%, 22% 76%, 19% 76%, 17% 76%, 15% 75%, 13% 75%, 13% 72%, 15% 71%, 14% 70%, 13% 68%, 14% 65%, 23% 31%, 24% 29%, 25% 28%, 26% 26%, 29% 25%, 31% 24%, 33% 23%, 35% 22%, 37% 20%, 40% 19%, 41% 20%, 43% 19%, 46% 19%, 49% 20%, 52% 19%);
 }
+
 
 .overlay {
   position: absolute;
-  justify-self: center;
-  align-items: center;
-  height: 70vw;
-  width: 70vw;
-  z-index: 2;
-  transform: translateX(-5px);
+  height: 62vw;
+  width: 62vw;
+  z-index: 1;
 }
 
 .sweater {
@@ -44,8 +94,8 @@
 }
 
 .sweater_section_top {
-  grid-auto-rows: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+  grid-auto-rows: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
   grid-gap: 0px 0px;
   background-color: #4D0000;
   border: 5px solid rgb(99, 99, 99);
@@ -54,16 +104,17 @@
 }
 
 .sweater_section_mid {
-  grid-auto-rows: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
-  grid-gap: 3px 3px;
+  grid-auto-rows: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+  grid-gap: 3px 0px;
   background-color: #4D0000;
   border: 5px solid rgb(99, 99, 99);
   max-height: 15%;
+
 }
 
 .sweater_section_bottom {
-  grid-auto-rows: 500px;
+  grid-auto-rows: 3000px;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   grid-gap: 10px 10px;
   background-color: #4D0000;
@@ -73,6 +124,7 @@
 
 .knit:nth-child(1n) {
   background-color: #C8630F;
+
 }
 
 .knit:nth-child(2n) {
@@ -85,12 +137,48 @@
 
 .knit:nth-child(4n) {
   background-color: #954502;
+  /* rhombus
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
+
 }
 
 .knit:nth-child(5n) {
   background-color: #956402;
+  /* Rabbet
+  clip-path: polygon(0% 15%, 15% 15%, 15% 0%, 85% 0%, 85% 15%, 100% 15%, 100% 85%, 85% 85%, 85% 100%, 15% 100%, 15% 85%, 0% 85%); */
 }
 
 .knit:nth-child(6n) {
   background-color: #950202;
+  /* star
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); */
 }
+
+.sweater_section_top .knit:nth-child(2n) {
+  clip-path: polygon(0 33%, 50% 0, 100% 33%, 100% 67%, 50% 33%, 0 67%);
+}
+
+.sweater_section_top .knit:nth-child(2n + 1) {
+  clip-path: polygon(0 33%, 50% 67%, 100% 33%, 100% 67%, 50% 100%, 0 67%);
+}
+
+.sweater_section_mid .knit:nth-child(2n) {
+  clip-path: polygon(0 0, 0% 20%, 16% 50%, 0 80%, 0 100%, 50% 0, 100% 100%, 100% 80%, 84% 50%, 100% 20%, 100% 0, 50% 100%);
+}
+
+.sweater_section_mid .knit:nth-child(2n + 1) {
+  clip-path: polygon(0 0, 0% 20%, 16% 50%, 0 80%, 0 100%, 50% 0, 100% 100%, 100% 80%, 84% 50%, 100% 20%, 100% 0, 50% 100%);
+}
+
+/* .sweater_section_bottom .knit:nth-child(2n) {
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+} */
+
+/* up-chevron: clip-path: polygon(0 33%, 50% 0, 100% 33%, 100% 67%, 50% 33%, 0 67%); */
+/* down-chevron: clip-path: polygon(0 33%, 50% 67%, 100% 33%, 100% 67%, 50% 100%, 0 67%); */
+
+/* tesselating x: clip-path: polygon(0 0, 0% 20%, 16% 50%, 0 80%, 0 100%, 50% 0, 100% 100%, 100% 80%, 84% 50%, 100% 20%, 100% 0, 50% 100%); */
+
+/* new sweater
+clip-path: polygon(50% 20%, 57% 20%, 60% 20%, 64% 22%, 74% 27%, 76% 29%, 78% 32%, 79% 36%, 86% 67%, 86% 69%, 85% 70%, 86% 74%, 80% 75%, 79% 70%, 78% 70%, 76% 67%, 70% 39%, 69% 38%, 69% 40%, 69% 70%, 68% 73%, 67% 74%, 66% 75%, 65% 78%, 65% 80%, 35% 80%, 34% 75%, 33% 75%, 33% 74%, 31% 74%, 31% 73%, 31% 71%, 31% 39%, 31% 39%, 30% 40%, 29% 43%, 23% 70%, 22% 71%, 20% 73%, 20% 75%, 20% 76%, 19% 76%, 17% 76%, 15% 75%, 13% 75%, 13% 72%, 14% 71%, 13% 70%, 13% 68%, 14% 65%, 23% 31%, 24% 29%, 25% 28%, 26% 26%, 29% 25%, 31% 24%, 33% 23%, 35% 22%, 37% 20%, 40% 19%, 41% 20%, 43% 19%, 46% 19%, 49% 20%, 52% 19%);
+*/
