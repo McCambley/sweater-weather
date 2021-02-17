@@ -2,16 +2,16 @@
   0% {
     transform: scale(1,1) rotate(0deg);
     animation-timing-function: cubic-bezier(.81,.01,.24,.98);
-  } 30% {
+  } 60% {
     transform: scale(1.1, 1.1) rotate(1deg);
     animation-timing-function: linear;
-  } 40% {
+  } 70% {
     transform: scale(1.1, 1.1) rotate(-1deg);
     animation-timing-function: linear;
-  } 50% {
+  } 80% {
     transform: scale(1.1, 1.1) rotate(1deg);
     animation-timing-function: linear;
-  } 60% {
+  } 90% {
     transform: scale(1.1, 1.1) rotate(-1deg);
     animation-timing-function: linear;
   } 100% {
@@ -39,8 +39,17 @@
   0% {
     opacity: 0;
   }
+  .0001% {
+    opacity: .3;
+  }
+  49.999 {
+    opacity: .3;
+  }
+  50.001% {
+    opacity: 0;
+  }
   100% {
-    opacity: .5;
+    opacity: 0;
   }
 }
 
@@ -67,7 +76,7 @@
 }
 
 .room:hover {
-  animation: rotation 1s forwards;
+  animation: rotation .7s forwards;
 }
 
 
@@ -140,7 +149,7 @@
 }
 
 .stitch-box {
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: polygon(0 50%, 50% 100%, 50% 75%, 25% 50%, 50% 25%, 75% 50%, 50% 75%, 50% 100%, 100% 50%, 50% 0);
   position: relative;
   display: flex;
   justify-content: center;
@@ -157,15 +166,15 @@
 }
 
 .sweater_section_mid .stitch-box:nth-of-type(3n) .knit-cover {
-  animation: waves 3s ease-in-out infinite alternate;
+  animation: waves 3s ease-in-out infinite;
 }
 
 .sweater_section_mid .stitch-box:nth-of-type(3n+1) .knit-cover {
-  animation: waves 3s ease-in-out infinite alternate 1s;
+  animation: waves 3s ease-in-out infinite 1s;
 }
 
 .sweater_section_mid .stitch-box:nth-of-type(3n+2) .knit-cover {
-  animation: waves 3s ease-in-out infinite alternate 2s;
+  animation: waves 3s ease-in-out infinite 2s;
 }
 
 .knit_section_mid {
