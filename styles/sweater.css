@@ -28,10 +28,19 @@
 
 @keyframes widener {
   0% {
-    grid-auto-rows: 0px;
+    width: 100%;
   }
   100% {
-    grid-auto-rows: 10px;
+    width: 90%;
+  }
+}
+
+@keyframes waves {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: .5;
   }
 }
 
@@ -48,8 +57,8 @@
 }
 
 .room {
-  width: 50vw;
-  height: 50vw;
+  width: 35vw;
+  height: 35vw;
   position: relative;
   display: flex;
   justify-content: center;
@@ -98,19 +107,26 @@
   grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
   grid-gap: 0px 0px;
   background-color: #4D0000;
-  border: 5px solid rgb(99, 99, 99);
+  border: 10px solid #4D0000;
   max-height: 10%;
   width: 60vw;
 }
-
+/*
+.room:hover .sweater_section_top {
+  animation: widener 4s cubic-bezier(0.5, 0, 0.5, 1) .1s alternate infinite;
+}
+*/
 .sweater_section_mid {
   grid-auto-rows: 40px;
   grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
-  grid-gap: 3px 0px;
+  grid-gap: 3px 3 px;
   background-color: #4D0000;
-  border: 5px solid rgb(99, 99, 99);
+  border: 0px solid #4D0000;
   max-height: 15%;
+}
 
+.room:hover .sweater_section_mid {
+  animation: widener 4s cubic-bezier(0.5, 0, 0.5, 1) alternate infinite 1s;
 }
 
 .sweater_section_bottom {
@@ -118,16 +134,51 @@
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   grid-gap: 10px 10px;
   background-color: #4D0000;
-  border: 5px solid rgb(99, 99, 99);
+  border: 5px solid #4D0000;
   max-height: 40%;
+  /* animation: pulse 4s cubic-bezier(0.5, 0, 0.5, 1) alternate infinite; */
+}
+
+.stitch-box {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.knit-cover {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  background-color: whitesmoke;
+  opacity: 0;
+}
+
+.sweater_section_mid .stitch-box:nth-of-type(3n) .knit-cover {
+  animation: waves 3s ease-in-out infinite alternate;
+}
+
+.sweater_section_mid .stitch-box:nth-of-type(3n+1) .knit-cover {
+  animation: waves 3s ease-in-out infinite alternate 1s;
+}
+
+.sweater_section_mid .stitch-box:nth-of-type(3n+2) .knit-cover {
+  animation: waves 3s ease-in-out infinite alternate 2s;
+}
+
+.knit_section_mid {
+  height: 100%;
+  width: 100%;
+  background-color: coral;
 }
 
 .knit:nth-child(1n) {
   background-color: #C8630F;
-
 }
 
-.knit:nth-child(2n) {
+.knit:nth-of-type(2n) {
   background-color: #C88A0F;
 }
 
@@ -139,7 +190,6 @@
   background-color: #954502;
   /* rhombus
   clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); */
-
 }
 
 .knit:nth-child(5n) {
@@ -162,17 +212,30 @@
   clip-path: polygon(0 33%, 50% 67%, 100% 33%, 100% 67%, 50% 100%, 0 67%);
 }
 
-.sweater_section_mid .knit:nth-child(2n) {
-  clip-path: polygon(0 0, 0% 20%, 16% 50%, 0 80%, 0 100%, 50% 0, 100% 100%, 100% 80%, 84% 50%, 100% 20%, 100% 0, 50% 100%);
+.sweater_section_mid .knit {
+  background-color: #C8630F;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: -1;
 }
 
-.sweater_section_mid .knit:nth-child(2n + 1) {
-  clip-path: polygon(0 0, 0% 20%, 16% 50%, 0 80%, 0 100%, 50% 0, 100% 100%, 100% 80%, 84% 50%, 100% 20%, 100% 0, 50% 100%);
+.sweater_section_mid .stitch-box:nth-of-type(3n) .knit {
+  background-color: maroon;
 }
 
-/* .sweater_section_bottom .knit:nth-child(2n) {
-  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
-} */
+.sweater_section_mid .stitch-box:nth-of-type(3n+1) .knit {
+  background-color: maroon;
+}
+
+.sweater_section_mid .stitch-box:nth-of-type(3n+2) .knit {
+  background-color: maroon;
+}
+
+.sweater_section_bottom .knit {
+  border-radius: 5%;
+  /*clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); */
+}
 
 /* up-chevron: clip-path: polygon(0 33%, 50% 0, 100% 33%, 100% 67%, 50% 33%, 0 67%); */
 /* down-chevron: clip-path: polygon(0 33%, 50% 67%, 100% 33%, 100% 67%, 50% 100%, 0 67%); */
@@ -182,3 +245,11 @@
 /* new sweater
 clip-path: polygon(50% 20%, 57% 20%, 60% 20%, 64% 22%, 74% 27%, 76% 29%, 78% 32%, 79% 36%, 86% 67%, 86% 69%, 85% 70%, 86% 74%, 80% 75%, 79% 70%, 78% 70%, 76% 67%, 70% 39%, 69% 38%, 69% 40%, 69% 70%, 68% 73%, 67% 74%, 66% 75%, 65% 78%, 65% 80%, 35% 80%, 34% 75%, 33% 75%, 33% 74%, 31% 74%, 31% 73%, 31% 71%, 31% 39%, 31% 39%, 30% 40%, 29% 43%, 23% 70%, 22% 71%, 20% 73%, 20% 75%, 20% 76%, 19% 76%, 17% 76%, 15% 75%, 13% 75%, 13% 72%, 14% 71%, 13% 70%, 13% 68%, 14% 65%, 23% 31%, 24% 29%, 25% 28%, 26% 26%, 29% 25%, 31% 24%, 33% 23%, 35% 22%, 37% 20%, 40% 19%, 41% 20%, 43% 19%, 46% 19%, 49% 20%, 52% 19%);
 */
+
+/* .sweater_section_mid .knit:nth-child(2n) {
+  clip-path: polygon(0 0, 0% 20%, 16% 50%, 0 80%, 0 100%, 50% 0, 100% 100%, 100% 80%, 84% 50%, 100% 20%, 100% 0, 50% 100%);
+}
+
+.sweater_section_mid .knit:nth-child(2n + 1) {
+  clip-path: polygon(0 0, 0% 20%, 16% 50%, 0 80%, 0 100%, 50% 0, 100% 100%, 100% 80%, 84% 50%, 100% 20%, 100% 0, 50% 100%);
+} */
