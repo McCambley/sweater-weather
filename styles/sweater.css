@@ -28,10 +28,10 @@
 
 @keyframes widener {
   0% {
-    width: 100%;
+    width: 70%;
   }
   100% {
-    width: 90%;
+    width: 60%;
   }
 }
 
@@ -123,6 +123,7 @@
 }
 */
 .sweater_section_mid {
+  max-width: 70%;
   grid-auto-rows: 40px;
   grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
   grid-gap: 3px 3 px;
@@ -239,7 +240,7 @@
 }
 
 .sweater_section_bottom .knit {
-  border-radius: 5%;
+  border-radius: 10px;
   /*clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); */
 }
 
