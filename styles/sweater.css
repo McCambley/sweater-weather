@@ -113,7 +113,7 @@
   grid-template-columns: repeat(auto-fit, minmax(20px, 1fr));
   grid-gap: 0px 0px;
   background-color: #4D0000;
-  border: 5px solid #4D0000;
+  border: 0px solid #4D0000;
   max-height: 10%;
   width: 60vw;
 }
@@ -128,7 +128,7 @@
   grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
   grid-gap: 3px 3 px;
   background-color: #4D0000;
-  border: 0px solid #4D0000;
+  border: 7px solid #4D0000;
   max-height: 15%;
 }
 
@@ -141,7 +141,7 @@
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   grid-gap: 10px 10px;
   background-color: #4D0000;
-  border: 5px solid #4D0000;
+  border: 0px solid #4D0000;
   max-height: 40%;
   /* animation: pulse 4s cubic-bezier(0.5, 0, 0.5, 1) alternate infinite; */
 }
@@ -240,7 +240,7 @@
 }
 
 .sweater_section_bottom .knit {
-  margin-top: 3px;
+  /* margin-top: 3px; */
   border-radius: 10px;
   /*clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); */
 }
