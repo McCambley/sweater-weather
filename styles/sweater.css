@@ -59,7 +59,7 @@
   background-image: url(../images/background.jpg);
   background-size: cover;
   background-attachment: fixed;
-  position: relative;
+  overflow: hidden;
 }
 
 .room {
@@ -78,6 +78,7 @@
 
 
 .closet {
+  position: relative;
   min-width: 80vw;
   max-width: 80vw;
   height: 80vw;
@@ -91,11 +92,13 @@
   clip-path: polygon(50% 20%, 57% 20%, 60% 20%, 64% 22%, 74% 27%, 76% 29%, 78% 32%, 79% 36%, 86% 67%, 86% 69%, 85% 70%, 86% 74%, 78% 75%, 77% 70%, 77% 70%, 75% 67%, 70% 44%, 69% 38%, 69% 40%, 69% 70%, 68% 73%, 67% 74%, 66% 75%, 65% 78%, 65% 80%, 35% 80%, 34% 75%, 33% 75%, 33% 74%, 33% 74%, 32% 73%, 31% 71%, 31% 39%, 31% 39%, 30% 40%, 30% 43%, 23% 70%, 22% 71%, 22% 73%, 22% 75%, 22% 76%, 19% 76%, 17% 76%, 15% 75%, 13% 75%, 13% 72%, 15% 71%, 14% 70%, 13% 68%, 14% 65%, 23% 31%, 24% 29%, 25% 28%, 26% 26%, 29% 25%, 31% 24%, 33% 23%, 35% 22%, 37% 20%, 40% 19%, 41% 20%, 43% 19%, 46% 19%, 49% 20%, 52% 19%);
 }
 
-
 .overlay {
   position: absolute;
-  height: 62vw;
-  width: 62vw;
+  /* height: 62vw;
+  width: 62vw; */
+  height: 177%;
+  width: 177%;
+  /* max-width: 50vh; */
   z-index: 1;
 }
 
@@ -126,7 +129,7 @@
   max-width: 70%;
   grid-auto-rows: 40px;
   grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
-  grid-gap: 3px 3 px;
+  gap: 3px;
   background-color: #4D0000;
   border: 7px solid #4D0000;
   max-height: 15%;
